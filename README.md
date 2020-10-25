@@ -56,7 +56,7 @@ $ ./rebuild_loader.sh /tmp/input.asm /tmp/build
 Removing section attributes from input file
 Building input file
 Building encrypter
-Runing encrypter
+Running encrypter
 Building loader
 Done
 $ strace /tmp/build
