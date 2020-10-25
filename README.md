@@ -51,7 +51,7 @@ When the loader is run it reads the key from it's own program memory where it is
 ## Example:    
 
 ```
-# First set the chosen method in key.inc and configure in it's inc file if required (e.g file location/offset etc)
+# First set the chosen method in key.inc and configure other inc file if required (e.g file location/offset etc)
 $ ./rebuild_loader.sh /tmp/input.asm /tmp/build
 Removing section attributes from input file
 Building input file
