@@ -30,7 +30,7 @@ section .bss
     arg  resq  8
 ```
 
-(All being well) slimpack will remove the section definitions and build a binary with .text / .data / .bss all together.     
+(All being well) slimpack will remove the section definitions and build a binary with .text / .data / .bss all together (yes really - the whole thing will run in one big rwx area! :))           
 
 The file is then encrypted with Intel AES-NI instructions (AES128-ECB "possibly" done correctly - I copied the code from the well commented GAS syntax examples at https://github.com/kmcallister/aesni-examples but have done minimal checks for correctness.. n.b: ECB is a weaker mode but 'good enough' here)     
 
@@ -69,4 +69,5 @@ read(3, "rTmaPkoitYdtRutk", 16)         = 16
 execve("/bin/echo", ["/bin/echo", "hiya mateys"], NULL) = 0
 ```
 
-Notes: The code is a little rough, especially in the encrypter as this is something of an unfinished project.     
+##Notes: 
+The code is a little rough, especially in the encrypter as this is something of an unfinished project.     
