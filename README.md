@@ -70,4 +70,4 @@ execve("/bin/echo", ["/bin/echo", "hiya mateys"], NULL) = 0
 ```
 
 ## Notes: 
-The code is a little rough, especially in the encrypter as this is something of an unfinished project.     
+The code is a little rough, especially in the encrypter as this is something of an unfinished project made for a demo.     
