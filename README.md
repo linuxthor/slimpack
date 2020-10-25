@@ -48,7 +48,7 @@ When the loader is run it reads 16 bytes from a chosen offset in some file and u
 
 When the loader is run it reads the key from it's own program memory where it is hardcoded in plaintext.    
 
-Example:    
+## Example:    
 
 ```
 # First set the chosen method in key.inc and configure in it's inc file if required (e.g file location/offset etc)
