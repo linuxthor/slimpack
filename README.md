@@ -32,7 +32,7 @@ section .bss
 
 (All being well) slimpack will remove the section definitions and build a binary with .text / .data / .bss all together (yes really - the whole thing will run in one big rwx area! :))           
 
-The file is then encrypted with Intel AES-NI instructions (AES128-ECB "possibly" done correctly - I copied the code from the well commented GAS syntax examples at https://github.com/kmcallister/aesni-examples but have done minimal checks for correctness.. n.b: ECB is a weaker mode but 'good enough' here)     
+The file is then encrypted with AES-NI instructions (AES128-ECB "possibly" done correctly - I copied the code from the well commented GAS syntax examples at https://github.com/kmcallister/aesni-examples but have done minimal checks for correctness.. n.b: ECB is a weaker mode but 'good enough' here)     
 
 The loader is then built.. A small stub of code that sets up the process to run in rwx memory (via program header flag) and maps itself an area of rwx memory to work in and do the decryption fetching the key from one of three locations:     
 
