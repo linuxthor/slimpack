@@ -24,7 +24,7 @@ ld -o $tmp_dir/input $tmp_dir/input.o
 
 echo "Building encrypter"
 nasm -f bin -o $tmp_dir/enc $tmp_dir/enc.asm > /dev/null 2>&1
-echo "Runing encrypter"
+echo "Running encrypter"
 chmod +x $tmp_dir/enc
 $tmp_dir/enc
 echo "Building loader"
