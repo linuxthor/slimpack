@@ -11,18 +11,18 @@ ehdr:
     dw 0x3e                          ; e_machine    
     dd 1                             ; e_version    
     dq _start                        ; e_entry      
-    dq phdr - $$                     ; e_phoff       
+    dq phdr1 - $$                    ; e_phoff       
     dq 0                             ; e_shoff       
     dd 0                             ; e_flags       
     dw ehdrsize                      ; e_ehsize    
     dw phdrsize                      ; e_phentsize  
-    dw 1                             ; e_phnum   
+    dw 2                             ; e_phnum   
     dw 0                             ; e_shentsize
     dw 0                             ; e_shnum       
     dw 0                             ; e_shstrndx
 ehdrsize equ $ - ehdr
 
-phdr:
+phdr1:
     dd 1                             ; p_type     loadable 
     dd 7                             ; p_flags    rwx
     dq 0                             ; p_offset
@@ -31,7 +31,17 @@ phdr:
     dq filesize                      ; p_filesz
     dq filesize                      ; p_memsz
     dq 0                             ; p_align   
-phdrsize equ $ - phdr
+phdrsize equ $ - phdr1
+
+phdr2:
+    dd 1                             ; p_type     loadable 
+    dd 7                             ; p_flags    rwx
+    dq 0                             ; p_offset
+    dq 0x0500000                     ; p_vaddr    
+    dq $$                            ; p_paddr     
+    dq 4096                          ; p_filesz
+    dq 4096                          ; p_memsz
+    dq 0                             ; p_align   
 
 _helper:
     %include 'key.inc'
@@ -104,16 +114,7 @@ checker:
 hlpnd:
 
 _start:
-    mov rax, 9                       ; sys_mmap
-    mov rdi, 0
-    mov rsi, 4096
-    mov rdx, PROT_READ|PROT_WRITE|PROT_EXEC
-    mov r10, MAP_PRIVATE|MAP_ANONYMOUS
-    mov r8,  -1
-    mov r9,  0
-    syscall   
-
-    mov r13, rax
+    mov r13, 0x0500000
 
     mov rax, _helper
     mov rbx, r13 
