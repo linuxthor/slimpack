@@ -29,7 +29,7 @@ phdr1:
     dq $$                            ; p_vaddr    
     dq $$                            ; p_paddr     
     dq filesize                      ; p_filesz
-    dq filesize                      ; p_memsz
+    dq 0xfeed                        ; p_memsz
     dq 0                             ; p_align   
 phdrsize equ $ - phdr1
 
@@ -37,7 +37,7 @@ phdr2:
     dd 1                             ; p_type     loadable 
     dd 7                             ; p_flags    rwx
     dq 0                             ; p_offset
-    dq 0x0500000                     ; p_vaddr    
+    dq HELPERSLOC                    ; p_vaddr    
     dq $$                            ; p_paddr     
     dq 4096                          ; p_filesz
     dq 4096                          ; p_memsz
@@ -111,22 +111,9 @@ checker:
     mov rdi, 1
     syscall
 
-hlpnd:
-
 _start:
-    mov r13, 0x0500000
-
-    mov rax, _helper
-    mov rbx, r13 
-up:
-    mov rcx, [rax]
-    mov [rbx], rcx
-    add rax, 8
-    add rbx, 8
-    cmp rax, hlpnd
-    jl up
-
-    jmp r13
+    mov r13, HELPERSLOC + (_helper - ehdr)
+    jmp r13 
 
 input:
     incbin ENC_FILE
