@@ -8,10 +8,3 @@
     pxor xmm0, xmm2
     pxor xmm0, xmm1
 %endmacro
-
-; sys_open
-%define O_RDONLY 0
-%define O_WRONLY 1
-%define O_RDWR   2
-
-
