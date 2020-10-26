@@ -62,7 +62,7 @@ Done
 $ strace /tmp/build
 
 execve("/tmp/build", ["/tmp/build"], 0x7ffdf20285a0 /* 58 vars */) = 0
-mmap(NULL, 4096, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_ANONYMOUS, 0, 0) = 0x7f5e1765a000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5e1765a000
 open("/etc/ssh/ssh_host_rsa_key.pub", O_RDONLY) = 3
 lseek(3, 72, SEEK_SET)                  = 72
 read(3, "rTmaPkoitYdtRutk", 16)         = 16
