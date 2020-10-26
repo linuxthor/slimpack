@@ -39,7 +39,7 @@ phdr2:
     dq 0                             ; p_offset
     dq HELPERSLOC                    ; p_vaddr    
     dq $$                            ; p_paddr     
-    dq filesiz                       ; p_filesz
+    dq filesize                      ; p_filesz
     dq filesize                      ; p_memsz
     dq 0                             ; p_align   
 
