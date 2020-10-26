@@ -1,2 +1,3 @@
 %define ENTRYPOINT 0x400080
+%define HELPERSLOC 0x500000
 %define ENC_FILE '200.enc'
