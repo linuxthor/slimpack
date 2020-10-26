@@ -29,7 +29,7 @@ phdr1:
     dq $$                            ; p_vaddr    
     dq $$                            ; p_paddr     
     dq filesize                      ; p_filesz
-    dq 0xfeed                        ; p_memsz
+    dq filesize                      ; p_memsz
     dq 0                             ; p_align   
 phdrsize equ $ - phdr1
 
@@ -39,8 +39,8 @@ phdr2:
     dq 0                             ; p_offset
     dq HELPERSLOC                    ; p_vaddr    
     dq $$                            ; p_paddr     
-    dq 4096                          ; p_filesz
-    dq 4096                          ; p_memsz
+    dq filesiz                       ; p_filesz
+    dq filesize                      ; p_memsz
     dq 0                             ; p_align   
 
 _helper:
