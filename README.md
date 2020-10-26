@@ -34,7 +34,7 @@ section .bss
 
 The file is then encrypted with AES-NI instructions (AES128-ECB "possibly" done correctly - I copied the code from the well commented GAS syntax examples at https://github.com/kmcallister/aesni-examples but have done minimal checks for correctness.. n.b: ECB is a weaker mode but 'good enough' here)     
 
-The loader is then built.. A small stub of code that sets up the process to run in rwx memory (via program header flag) and maps itself an area of rwx memory to work in and do the decryption fetching the key from one of three locations:     
+The loader is then built.. A small stub of code that sets up the process to run in rwx memory (via program header flag) and gives itself an area of rwx memory to work in and do the decryption fetching the key from one of three locations:     
 
 1) From stdin:      
 
@@ -62,7 +62,6 @@ Done
 $ strace /tmp/build
 
 execve("/tmp/build", ["/tmp/build"], 0x7ffdf20285a0 /* 58 vars */) = 0
-mmap(NULL, 4096, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5e1765a000
 open("/etc/ssh/ssh_host_rsa_key.pub", O_RDONLY) = 3
 lseek(3, 72, SEEK_SET)                  = 72
 read(3, "rTmaPkoitYdtRutk", 16)         = 16
