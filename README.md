@@ -1,6 +1,6 @@
 # slimpack
 
-Welcome! Slimpack is a toolkit intended to allow for the creation of AES-NI encrypted file loaders from single source code file Linux NASM projects.    
+Welcome! Slimpack is a toolkit intended to allow for the creation of AES-NI encrypted file loaders from single source code file Linux NASM-syntax assembly language projects.    
 
 For example:    
 
