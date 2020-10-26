@@ -109,7 +109,7 @@ _start:
     mov rsi, 4096
     mov rdx, PROT_READ|PROT_WRITE|PROT_EXEC
     mov r10, MAP_PRIVATE|MAP_ANONYMOUS
-    mov r8,  0
+    mov r8,  -1
     mov r9,  0
     syscall   
 
